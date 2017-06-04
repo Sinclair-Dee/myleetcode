@@ -14,7 +14,7 @@ public:
 int main(){
     int sum;
     Solution solution;
-    sum = solution.trailingZeroes(2);
+    sum = solution.trailingZeroes(1000);
     cout<<sum<<endl;
     return 0;
 }
