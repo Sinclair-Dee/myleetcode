@@ -4,6 +4,7 @@ Find the contiguous subarray within an array (containing at least one number) wh
     the contiguous subarray [4,-1,2,1] has the largest sum = 6.
 
 **题意是求数组中子数组的最大和:**
+
 解法一：算法复杂度为O(n)
 - 当部分序列和大于零的话就一直加下一个元素即可，并和当前最大值进行比较.
 - 如果出现部分序列小于零的情况，那肯定就是从当前元素算起
