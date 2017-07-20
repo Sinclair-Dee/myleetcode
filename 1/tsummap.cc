@@ -1,7 +1,7 @@
 #include <iostream>
+#include <map>
 #include <vector>
 using namespace std;
-
 class Solution {  
 public:  
     vector<int> twoSum(vector<int>& nums, int target) {  
@@ -19,3 +19,14 @@ public:
         return res;  
     }  
 };  
+
+int main(){
+    int num[4]={0,3,2,0};
+    vector<int> nums(num,num+4); //给vector赋初值的一种方式
+    vector<int> sum;
+    int target =6;
+    Solution solution;
+    sum = solution.twoSum(nums, target);
+    return 0;
+}
+
