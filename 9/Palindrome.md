@@ -1,4 +1,5 @@
 ## An easy c++ 8 lines code (only reversing till half and then compare)
+
 ```
 class Solution {
 public:
