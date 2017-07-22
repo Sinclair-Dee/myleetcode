@@ -1,9 +1,8 @@
-// Definition for a binary tree node.
 //Run Code Status: compiled.
-// Definition for a binary tree node.
 #include <iostream>
 #include<stdlib.h>
 using namespace std;
+// Definition for a binary tree node.
 typedef struct TreeNode {
      int val;
      TreeNode *left;

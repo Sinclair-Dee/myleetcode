@@ -80,3 +80,37 @@ bool isSameTree(TreeNode *p, TreeNode *q) {
     return (p->val == q->val && isSameTree(p->left, q->left) && isSameTree(p->right, q->right));
 }
 ```
+
+## 用队列的方法进行层序遍历
+
+```
+        queue<TreeNode*> lqueue;
+        queue<TreeNode*> rqueue;
+        lqueue.push(p);
+        rqueue.push(q);
+        while(!lqueue.empty() && !rqueue.empty())
+        {
+            TreeNode* lfront = lqueue.front();
+            TreeNode* rfront = rqueue.front();
+
+            lqueue.pop();
+            rqueue.pop();
+            
+            if(!isSameNode(lfront->left, rfront->left))
+                return false;
+            if(lfront->left && rfront->left)
+            {
+                lqueue.push(lfront->left);
+                rqueue.push(rfront->left);
+            }
+            
+            if(!isSameNode(lfront->right, rfront->right))
+                return false;
+            if(lfront->right && rfront->right)
+            {
+                lqueue.push(lfront->right);
+                rqueue.push(rfront->right);
+            }
+        }
+        return true;
+```
