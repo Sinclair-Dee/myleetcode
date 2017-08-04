@@ -9,4 +9,5 @@ https://ide.c9.io/dixinkai/myleetcode
 
 ### 2017/08/04 
 
-142. Linked List Cycle II
+141. Linked List Cycle  solution with two pointer-walker and runner
+142.todo 
