@@ -19,8 +19,8 @@ public:
         ListNode* runner = head->next;
         //Traverse the linked list while walker doesn't meet runner
         while(walker != runner){
-            //If runner come to null,return false.          
-            if(runner->next == NULL)
+            //If runner come to null,return false. 
+            if(runner == NULL ||runner->next == NULL)//note this!
                 return false;
             walker = walker->next;
             runner = runner->next->next;//that's the reason why we shoule Judge runner and runner-next simultaneously
