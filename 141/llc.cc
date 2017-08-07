@@ -15,8 +15,8 @@ public:
         if(head == NULL || head->next == NULL)
             return false;
         //building two pointers-walker and runner
-        ListNode* walker = head;
-        ListNode* runner = head->next;
+        ListNode* walker = head->next;
+        ListNode* runner = head->next->next;
         //Traverse the linked list while walker doesn't meet runner
         while(walker != runner){
             //If runner come to null,return false. 
