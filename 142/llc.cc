@@ -1,5 +1,5 @@
-//todo
-//Run Code Status: 
+//have done.great
+//Run Code Status: compiled
 #include <iostream>
 using namespace std;
 // Definition for singly-linked list.
@@ -11,12 +11,12 @@ using namespace std;
 //solution by two pointers
 class Solution {
 public:
-    ListNode *detectCycle(ListNode *head) {
+    ListNode* detectCycle(ListNode *head) {
         if(head == NULL || head->next == NULL)
             return NULL;
         //building two pointers-walker and runner
-        ListNode* walker = head;
-        ListNode* runner = head->next;
+        ListNode* walker = head->next;
+        ListNode* runner = head->next->next;
         //Traverse the linked list while walker doesn't meet runner
         while(walker != runner){
             //If runner come to null,return false. 
@@ -25,9 +25,14 @@ public:
             walker = walker->next;
             runner = runner->next->next;//that's the reason why we shoule Judge runner and runner-next simultaneously
         }
-        //if runner meet walker eventually. return true
-        return  ;
-    
+        //if runner meet walker eventually. 
+        walker = head->next;
+        runner = runner->next;
+        while(walker != runner){
+            walker = walker->next;
+            runner = runner->next;
+        }
+        return walker;//or runner
     }
     ListNode* buildlist(ListNode* head){
 		int  in;
@@ -42,10 +47,14 @@ public:
 		}
 	return head;
 	}
+	//建环，在第begin个点切入
 	ListNode* addcycle(int flag,ListNode* head){
 	    if(flag){
+	        cout<<"where??"<<endl;
+	        int begin;
+	        cin>>begin;
 	        ListNode* temp = head;
-	        for(int i=0;i < 3;i++){
+	        for(int i=1;i < begin;i++){
 	            temp = temp->next;
 	        }
             ListNode* temp2 = temp;
@@ -66,10 +75,10 @@ int main(){
     int flag;
     cin>>flag;
     head = solution.addcycle(flag,head);
-    bool hascycle = solution.hasCycle(head);
-    if(hascycle)
-        cout<<"yes!"<<endl;
-    if(!hascycle)
-        cout<<"no!"<<endl;
+    ListNode* listnode = solution.detectCycle(head);
+    if(!listnode)
+        cout<<"null!"<<endl;
+    else
+        cout<<listnode->val<<endl;
     return 0;
 }
