@@ -25,3 +25,6 @@ Space complexity : O(1). We only use two nodes (slow and fast) so the space comp
 
 ### hash Table
 Algorithm
+We go through each node one by one and record each node's reference (or memory address) in a hash table. 
+If the current node is null, we have reached the end of the list and it must not be cyclic. 
+If current node’s reference is in the hash table, then return true.
