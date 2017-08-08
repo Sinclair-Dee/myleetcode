@@ -28,3 +28,23 @@ Algorithm
 We go through each node one by one and record each node's reference (or memory address) in a hash table. 
 If the current node is null, we have reached the end of the list and it must not be cyclic. 
 If current node’s reference is in the hash table, then return true.
+
+The following is java code.
+```
+public boolean hasCycle(ListNode head) {
+    Set<ListNode> nodesSeen = new HashSet<>();
+    while (head != null) {
+        if (nodesSeen.contains(head)) {
+            return true;
+        } else {
+            nodesSeen.add(head);
+        }
+        head = head.next;
+    }
+    return false;
+}
+
+```
+Complexity analysis
+Time complexity : O(n)O(n). We visit each of the nn elements in the list at most once. Adding a node to the hash table costs only O(1)O(1) time.
+Space complexity: O(n)O(n). The space depends on the number of elements added to the hash table, which contains at most nn elements.
