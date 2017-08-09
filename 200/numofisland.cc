@@ -47,7 +47,9 @@ bool isunion(int x,int y){
 }
 //将x 和y 所属的两个类簇合并，也即将y 所属类簇的根结点ry连接到x所属类簇的根结点rx上。
 void uniontwo(int x,int y){
-    pre[x] = pre[find(y)];
+	int rx = find(x);
+	int ry = find(y);
+	pre[ry] =rx;
 }
 protected:
 vector<int> pre; //前导数组，pre[i]表示i 与pre[i]属于同一类，且pre[i]为i的上一级。每一个类簇的根root的pre[root]=root
@@ -79,12 +81,12 @@ for(int i=0;i<m;i++)
         count++;
 
         if(i>0 && grid[i-1][j] == '1'){
-            unionfind.uniontwo((i-1)*m+j-1, i*m+j-1);
+            unionfind.uniontwo((i-1)*n+j, i*n+j);//i*n+j(即i行*n列+j)
             count--;
         }
 
-        if(j>0 && grid[i][j-1] == '1'){
-            unionfind.uniontwo(i*m+(j-1)-1, i*m+j-1);   
+        if(j>0 && grid[i][j-1] == '1' && !unionfind.isunion(i*n+(j-1), i*n+j)){
+            unionfind.uniontwo(i*n+(j-1), i*n+j);//这个地方不要犯低级错误。   
             count--;
         }
     }
